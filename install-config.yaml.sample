@@ -1,0 +1,51 @@
+apiVersion: v1
+baseDomain: base-domain
+compute:
+- architecture: amd64
+  hyperthreading: Enabled
+  name: worker
+  platform: 
+    vsphere:
+      cpus: 2
+      coresPerSocket: 2
+      memoryMB: 8192
+      osDisk:
+        diskSizeGB: 120
+  replicas: 3
+controlPlane:
+  architecture: amd64
+  hyperthreading: Enabled
+  name: master
+  platform:
+    vsphere: 
+      cpus: 4
+      coresPerSocket: 2
+      memoryMB: 16384 
+      osDisk:
+        diskSizeGB: 120
+  replicas: 3
+metadata:
+  creationTimestamp: null
+  name: cluster-name${segment}
+networking:
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  networkType: OpenShiftSDN
+  serviceNetwork:
+  - 172.30.0.0/16
+platform:
+  vsphere:
+    datacenter: dc
+    apiVIP: 192.168.${segment}.8
+    ingressVIP: 192.168.${segment}.9
+    network: "ocp-ci-seg-${segment}" 
+    defaultDatastore: vsanDatastore 
+    password: "<pw ....>"
+    cluster: cluster-name
+    username: ...@vsphere.local
+    vCenter: vcenter.hostname
+publish: External
+pullSecret: ...
+sshKey: |
+  ssh-rsa ...
