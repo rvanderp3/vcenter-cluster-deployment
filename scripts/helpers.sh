@@ -69,3 +69,15 @@ INSTALL_DIR=segment-install-$segment
 ./openshift-install destroy cluster --dir $INSTALL_DIR &
 done
 }
+
+# Restrict installation account to only have access to the segments in one cluster
+function restrictPermissions() {
+# NETWORKS=$(govc ls /IBMCloud/network/vcs8e-vcs-8e-management-private/ocp-*)
+# for NETWORK in $NETWORKS; do govc permissions.set -group=true -principal Installers@vsphere.local -role NoAccess $NETWORK; done
+
+# NETWORKS=$(govc ls /IBMCloud/network/vcs8e-vcs-8e-workload-private/ocp-*)
+# for NETWORK in $NETWORKS; do govc permissions.set -group=true -principal Installers@vsphere.local -role NoAccess $NETWORK; done
+
+# NETWORKS=$(govc ls /IBMCloud/network/vcs8e-vcs-lr-ci-workload-private/ocp-*)
+# for NETWORK in $NETWORKS; do govc permissions.set -group=true -principal Installers@vsphere.local -role Admin $NETWORK; done
+}
