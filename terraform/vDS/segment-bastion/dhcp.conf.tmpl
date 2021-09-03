@@ -1,0 +1,7 @@
+# Listen only on internal segment
+interface=ens224
+
+dhcp-range=z.z.${segment_number}.10,z.z.${segment_number}.99,1h
+
+# direct DNS lookups to IBM DNS
+dhcp-option=6,y.y.y.y

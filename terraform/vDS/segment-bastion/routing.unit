@@ -1,0 +1,14 @@
+[Unit]
+Description=Bastion node ingress/egress segment routing
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+Restart=on-failure
+RestartSec=5s
+TimeoutStartSec=0
+ExecStart=/bin/sh -c /etc/load-rules.sh
+
+[Install]
+WantedBy=multi-user.target

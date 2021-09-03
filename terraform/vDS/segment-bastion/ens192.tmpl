@@ -1,0 +1,13 @@
+[connection]
+id=Wired connection 1
+type=ethernet
+interface-name=ens192
+
+[ethernet]
+mac-address-blacklist=
+
+[ipv4]
+address1=y.y.y.${segment_number}/26,y.y.y.y
+dns=${dns}
+dns-search=
+method=manual
