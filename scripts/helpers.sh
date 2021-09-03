@@ -81,3 +81,8 @@ function restrictPermissions() {
 # NETWORKS=$(govc ls /IBMCloud/network/vcs8e-vcs-lr-ci-workload-private/ocp-*)
 # for NETWORK in $NETWORKS; do govc permissions.set -group=true -principal Installers@vsphere.local -role Admin $NETWORK; done
 }
+
+function setupRoutesOnProxy() {
+  # SEGMENTS="88 89 90 91 92 93"
+  # for SEGMENT in $SEGMENTS; do echo ${SEGMENT}; sudo ip route add z.z.${SEGMENT}.0/24 via y.y.y.${SEGMENT}; done
+}
