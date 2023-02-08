@@ -5,7 +5,7 @@ dhcp-range=z.z.${segment_number}.10,z.z.${segment_number}.99,1h
 dhcp-range=fd65:a1a8:60ad:271c::2,fd65:a1a8:60ad:271c::128,ra-names,slaac,64,3600
 enable-ra
 dhcp-option=option6:dns-server,[::]
-ra-param=*,0,0
+ra-param=*,30
 
 # direct DNS lookups to IBM DNS
 dhcp-option=6,y.y.y.y
